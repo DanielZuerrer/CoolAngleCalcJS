@@ -1,0 +1,76 @@
+#uploader {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+    color: #555;
+    background-color: #eee;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+}
+
+#uploader:hover {
+    color: #999;
+    background-color: #bbb;
+
+}
+
+#filePhoto {
+    display: none;
+}
+
+#structure {
+    position: absolute;
+    height: 75vh;
+    border: none;
+    z-index: -1;
+}
+
+p {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.border {
+    border: 2px solid red;
+}
+
+.flipped {
+    transform: scale(-1, 1);
+}
+
+#mainContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#schabloneContainer, #rotateContainer {
+    width: 31.22542595019659vw;
+    height: 25vw;
+}
+
+#lineContainer {
+    width: 30px;
+    height: 1px;
+}
+
+#schablone, #line {
+    width: inherit;
+    height: inherit;
+}
+
+.ui-resizable-s,.ui-resizable-n {
+    height: 10px;
+}
+.ui-resizable-w,.ui-resizable-e {
+    width: 10px;
+}
+
+#redLine, #greenLine {
+    position:absolute;
+}

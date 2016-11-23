@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Cool Angle Calc</title>
+	<meta name="description" content="Cool Angle Calc">
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.structure.min.css">
+	<link rel="stylesheet" href="css/css.css">
+
+
+	<!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<div id="uploader" onclick="$('#filePhoto').click()">
+		<p>
+			click here or drag here to display image
+		</p>
+	</div>
+
+	<div id="mainContainer">
+		<input type="file" name="userprofile_picture" id="filePhoto" />
+		<img id="structure" class="hidden" src="" />
+		<div id="schabloneContainer" class="hidden">
+			<div id="rotateContainer" class="hidden">
+				<img src="img/schabloneL.png" id="schablone" class="hidden border" />
+			</div>
+		</div>
+		<div id="lineContainer" class="hidden">
+			<div id="lineRotateContainer" class="hidden">
+				<svg height="500" width="30" class="hidden" id="line">
+					<line x1="15" y1="0" x2="15" y2="500" style="stroke:rgb(0,255,0);stroke-width:2" />
+					<circle cx="15" cy="252" r="2" fill="rgb(0,255,0)" stroke="rgb(0,255,0)" stroke-width="2"  />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="hidden">
+		<svg height="250" width="250" class="hidden" id="redLine">
+			<line x1="125" y1="0" x2="125" y2="250" style="stroke:rgb(255,0,0);stroke-width:2" />
+		</svg>
+		<svg height="250" width="250" class="hidden" id="greenLine">
+			<line x1="125" y1="0" x2="125" y2="250" style="stroke:rgb(0,255,0);stroke-width:2" />
+		</svg>
+		<canvas id="degrees" width="250" height="250">
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/propeller.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
