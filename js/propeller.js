@@ -192,7 +192,7 @@
     }
 
     p.onRotationStart = function (event) {
-        if (event.ctrlKey || 'ontouchstart' in document.documentElement) {
+        if (event.altKey || 'ontouchstart' in document.documentElement) {
             //Initializes coordinates if object was moved
             this.initCoordinates();
             this.initDrag();
