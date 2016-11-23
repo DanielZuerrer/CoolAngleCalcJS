@@ -64,7 +64,7 @@ var redTimesX,
     redTimesY;
 
 function addRedLineListeners() {
-    $('#schabloneContainer').draggable({containment: "parent"})
+    $('#schabloneContainer').draggable()
     $('#schablone').resizable({
         containment: "#mainContainer",
         handles: "e, s, n, w",
