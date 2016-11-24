@@ -8,7 +8,7 @@ function handleImage(e) {
         $('input').remove();
         $('#structure').attr('src', event.target.result);
         $('#mainContainer').height($('#structure').height())
-
+        $('#structureContainer').width($('#structure').width())
         $('.hidden').toggleClass("hidden")
 
     };
@@ -45,6 +45,7 @@ function drop(e) {
 
 var degreesCanvas;
 var degrees;
+var flipped = false;
 
 $(function () {
     addRedLineListeners();
@@ -56,7 +57,7 @@ var redLine = new Propeller(document.getElementById('redLine'));
 var redTriangle = {
     opp: 138,
     adj: 250,
-    angle: 28.89869,
+    angle: 28,
     baseAngle: 0
 };
 redLine.angle = redTriangle.angle;
@@ -71,7 +72,11 @@ function addRedLineListeners() {
         resize: function (event, ui) {
             redTimesX = ui.size.width / ui.originalSize.width;
             redTimesY = ui.size.height / ui.originalSize.height;
-            redTriangle.angle = Math.atan((redTimesX * redTriangle.opp) / (redTimesY * redTriangle.adj)) * (180 / Math.PI);
+            if (flipped) {
+                redTriangle.angle = Math.atan((-redTimesX * redTriangle.opp) / (redTimesY * redTriangle.adj)) * (180 / Math.PI);
+            } else {
+                redTriangle.angle = Math.atan((redTimesX * redTriangle.opp) / (redTimesY * redTriangle.adj)) * (180 / Math.PI);
+            }
             redLine.angle = redTriangle.angle + redTriangle.baseAngle;
             updateCanvas();
         },
@@ -122,14 +127,44 @@ function canvasInit() {
 function updateCanvas() {
     degreesCanvas.clearRect(0, 0, degrees.width, degrees.height);
     degreesCanvas.beginPath();
-    var start = (redLine.angle - 90) * (Math.PI / 180)
-    var end = (greenLine.angle - 270) * (Math.PI / 180)
+    if (flipped) {
+        var end = (redLine.angle - 90) * (Math.PI / 180);
+        var start = (greenLine.angle + 90) * (Math.PI / 180);
 
-    segment = (end - start) * (180 / Math.PI);
-    console.log(segment)
-    segment = segment >= 0 ? segment : (360 + segment);
+        redAngle = 360 - redLine.angle;
+        greenAngle = Math.abs(greenLine.angle - 180);
 
+    } else {
+        var start = (redLine.angle - 90) * (Math.PI / 180)
+        var end = (greenLine.angle - 270) * (Math.PI / 180)
+
+        redAngle = redLine.angle;
+        greenAngle = (greenLine.angle + 180) % 360;
+    }
     degreesCanvas.arc(125, 125, 50, start, end);
-    degreesCanvas.fillText(segment + '°', 10, 50);
     degreesCanvas.stroke();
+    segment = greenAngle - redAngle;
+    segment = segment >= 0
+        ? segment
+        : (360 + segment);
+    document
+        .getElementById('degreeOutput')
+        .innerText = round(segment, 2) + '°';
+}
+
+function flipSchablone() {
+    flipped = !flipped;
+    if (flipped) {
+        $('#schablone').attr('src', 'img/schabloneR.png');
+        redTriangle.angle = -redTriangle.angle;
+    } else {
+        $('#schablone').attr('src', 'img/schabloneL.png');
+        redTriangle.angle = -redTriangle.angle;
+    }
+    redLine.angle = redTriangle.angle + redTriangle.baseAngle;
+    updateCanvas();
+}
+
+function round(value, decimals) {
+    return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }

@@ -46,7 +46,7 @@ p {
 #mainContainer {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 #schabloneContainer, #rotateContainer {
@@ -73,4 +73,8 @@ p {
 
 #redLine, #greenLine {
     position:absolute;
+}
+
+#degreeOutput {
+    font-size: 2em;
 }
