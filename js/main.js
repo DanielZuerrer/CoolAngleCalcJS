@@ -5,7 +5,7 @@ function handleImage(e) {
     var reader = new FileReader();
     reader.onload = function (event) {
         $('#uploader').remove();
-        $('input').remove();
+        $('#filePhoto').remove();
         $('#structure').attr('src', event.target.result);
         $('#mainContainer').height($('#structure').height())
         $('#structureContainer').width($('#structure').width())
