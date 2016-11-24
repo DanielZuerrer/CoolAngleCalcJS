@@ -1,4 +1,4 @@
-#uploader {
+#uploader, #secondUploader {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -10,13 +10,13 @@
     font-weight: bold;
 }
 
-#uploader:hover {
+#uploader:hover, #secondUploader:hover {
     color: #999;
     background-color: #bbb;
 
 }
 
-#filePhoto {
+#filePhoto,#secondPhoto {
     display: none;
 }
 
@@ -31,7 +31,7 @@ p {
     text-align: center;
 }
 
-.hidden {
+.hidden, .hidden-switch {
     display: none;
 }
 
@@ -49,17 +49,17 @@ p {
     justify-content: space-around;
 }
 
-#schabloneContainer, #rotateContainer {
+.schabloneContainer, .rotateContainer {
     width: 31.22542595019659vw;
     height: 25vw;
 }
 
-#lineContainer {
+.lineContainer {
     width: 30px;
     height: 1px;
 }
 
-#schablone, #line {
+.schablone, .line {
     width: inherit;
     height: inherit;
 }

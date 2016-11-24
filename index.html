@@ -26,21 +26,25 @@
 
 	<div id="mainContainer">
 		<input type="file" name="userprofile_picture" id="filePhoto" />
-		<div id="structureContainer">
-			<img id="structure" class="hidden" src="" />
-			<div id="schabloneContainer" class="hidden">
-				<div id="rotateContainer" class="hidden">
-					<img src="img/schabloneL.png" id="schablone" class="hidden border" />
+		<div class="structureContainer">
+			<div class="workingContainer">
+				<img id="structure" class="hidden" src="" />
+				<div class="schabloneContainer hidden">
+					<div class="rotateContainer hidden">
+						<img src="img/schabloneL.png" class="schablone hidden border" />
+					</div>
+				</div>
+				<div class="lineContainer hidden">
+					<div class="lineRotateContainer hidden">
+						<svg height="500" width="30" class="hidden line">
+							<line x1="15" y1="0" x2="15" y2="500" style="stroke:rgb(0,255,0);stroke-width:2" />
+							<circle cx="15" cy="252" r="2" fill="rgb(0,255,0)" stroke="rgb(0,255,0)" stroke-width="2" />
+						</svg>
+					</div>
 				</div>
 			</div>
-			<div id="lineContainer" class="hidden">
-				<div id="lineRotateContainer" class="hidden">
-					<svg height="500" width="30" class="hidden" id="line">
-						<line x1="15" y1="0" x2="15" y2="500" style="stroke:rgb(0,255,0);stroke-width:2" />
-						<circle cx="15" cy="252" r="2" fill="rgb(0,255,0)" stroke="rgb(0,255,0)" stroke-width="2" />
-					</svg>
-				</div>
-			</div>
+			<img id="secondStructure" class="hidden" src="" />
+
 		</div>
 		<div class="hidden">
 			<div id="angleOutput">
@@ -56,14 +60,24 @@
 			<div id="controls">
 				<div>
 					<button type="button" onclick="flipSchablone()">Flip</button>
+					<button class="hidden-switch" type="button" onclick="switchImages()">Switch Images</button>
 				</div>
 				<form>
 					<input id="bigInfo" type="text" name="bigInfo"><br>
 					<textarea name="Text1" cols="39" rows="5"></textarea>
 				</form>
+				<div id="secondImageContainer" class="hidden">
+		<div id="secondUploader" onclick="$('#secondPhoto').click()">
+			<p>
+				add second image
+			</p>
+		</div>
+		<input type="file" name="secondPhoto" id="secondPhoto" />
+	</div>
 			</div>
 		</div>
 	</div>
+
 
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
