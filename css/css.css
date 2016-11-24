@@ -22,7 +22,7 @@
 
 #structure {
     position: absolute;
-    height: 75vh;
+    width: 66vw;
     border: none;
     z-index: -1;
 }
