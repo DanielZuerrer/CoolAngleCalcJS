@@ -231,8 +231,10 @@ function round(value, decimals) {
     return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }
 
-function otherModality(val) {
-    if (val == 'other') {
+var modalityForm = document.getElementById('modalityForm');
+modalityForm.addEventListener('change', otherModality, false);
+function otherModality() {
+    if ($('#otherRadio').prop('checked')) {
         $('#otherModality').css("display", "inline-block")
     } else {
         $('#otherModality').css("display", "none")

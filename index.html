@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/jquery-ui.structure.min.css">
 	<link rel="stylesheet" href="css/css.css">
+	<link rel="stylesheet" href="css/save.css">
 
 
 	<!--[if lt IE 9]>
@@ -55,24 +56,25 @@
 			<p id="degreeOutput">151.10°</p>
 			<div id="controls">
 				<div>
-					<button type="button" onclick="flipSchablone()">Flip</button>
-					<button onclick="$('#replaceImage').trigger('click');">Replace Image</button>
-					<button class="hidden-switch" type="button" onclick="switchImages()">Switch Images</button>
+					<button id="flipButton" type="button" onclick="flipSchablone()">Flip</button>
+					<button id="replaceImageButton" onclick="$('#replaceImage').trigger('click');">Replace Image</button>
+					<button id="switchImagesButton" class="hidden-switch" type="button" onclick="switchImages()">Switch Images</button>
 
 					<input type="file" id="replaceImage" style="display: none"/>
 
 				</div><br>
 				<input id="bigInfo" type="text" name="bigInfo" placeholder="#"><br><br>
-				<select id="modality" name="modality" onchange="otherModality(this.value);">
-						<option value="ct">CT</option>
-						<option value="mri_3dir">MRI_3Dir</option>
-						<option value="mri_t2spc">MRI_T2spc</option>
-						<option value="other">other</option>
-					</select>
-				<input id="otherModality" name="otherModality" type="text" placeholder="other">
-				<br><br>
+				<form id="modalityForm">
+					<input id="ctRadio" type="radio" name="modality" value="CT" checked><label for="ctRadio">CT</label>
+					<input id="mri_3dirRadio" type="radio" name="modality" value="MRI_3Dir"><label for="mri_3dirRadio">MRI_3Dir</label>
+					<input id="mri_t2spcRadio" type="radio" name="modality" value="MRI_T2spc"><label for="mri_t2spcRadio">MRI_T2spc</label> <br>
+					<input id="otherRadio" type="radio" name="modality" value="Other"><label for="otherRadio">Other</label>
+					<input id="otherModality" name="otherModality" type="text" placeholder="other">
+				</form>
+
+				<br>
 				<div>
-					<span class="sideLetter activeSide">L</span><span class="sideLetter">R</span>
+					<span class="sideLetter">R</span><span class="sideLetter activeSide">L</span>
 				</div>
 				<br>
 				<textarea name="Text1" cols="39" rows="5" placeholder="comment"></textarea>
@@ -92,7 +94,6 @@
 	<script src="js/libs/jquery.js"></script>
 	<script src="js/libs/jquery-ui.js"></script>
 	<script src="js/libs/propeller.js"></script>
-	<script src="js/libs/html2canvas.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/save.js"></script>
 </body>

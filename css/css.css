@@ -93,7 +93,8 @@ textarea {
 }
 
 #otherModality {
-    width: 99%;
+    width: 70%;
+    float: right;
     display: none;
     font-size: 1em;
 }
