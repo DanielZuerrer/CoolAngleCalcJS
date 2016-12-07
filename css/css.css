@@ -86,3 +86,24 @@ p {
 textarea {
   resize: vertical; /* user can resize vertically, but width is fixed */
 }
+
+#modality {
+    width: 100%;
+    font-size: 1em;
+}
+
+#otherModality {
+    width: 99%;
+    display: none;
+    font-size: 1em;
+}
+
+.sideLetter {
+    font-size: 1.5em;
+    padding: 0 22%;
+    transition-duration: 0.5s;
+}
+
+.activeSide {
+    background-color: #90EE90;
+}

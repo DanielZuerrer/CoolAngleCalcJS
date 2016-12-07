@@ -2,8 +2,11 @@ var imageLoader = document.getElementById('filePhoto');
 imageLoader.addEventListener('change', handleImage, false);
 var secondImageLoader = document.getElementById('secondPhoto');
 secondImageLoader.addEventListener('change', handleSecondImage, false);
+var imageReplacer = document.getElementById('replaceImage');
+imageReplacer.addEventListener('change', replaceImage, false);
 
-var firstImageSource, secondImageSource;
+var firstImageSource,
+    secondImageSource;
 
 function handleImage(e) {
     var reader = new FileReader();
@@ -20,6 +23,22 @@ function handleImage(e) {
     reader.readAsDataURL(e.target.files[0]);
 
 }
+
+function replaceImage(e) {
+
+    var reader = new FileReader();
+    reader.onload = function (event) {
+        if ($('#structure').attr('src') == firstImageSource) {
+            firstImageSource = event.target.result
+            $('#structure').attr('src', firstImageSource)
+        } else {
+            secondImageSource = event.target.result
+            $('#structure').attr('src', secondImageSource)
+        }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+}
+
 function handleSecondImage(e) {
     var reader = new FileReader();
     reader.onload = function (event) {
@@ -196,17 +215,31 @@ function flipSchablone() {
         redTriangle.angle = -redTriangle.angle;
     }
     redLine.angle = redTriangle.angle + redTriangle.baseAngle;
+    $('.sideLetter').toggleClass('activeSide');
     updateCanvas();
 }
 
 function switchImages() {
     if ($('#structure').attr('src') == firstImageSource) {
-        $('#structure').attr('src',secondImageSource)
+        $('#structure').attr('src', secondImageSource)
     } else {
-        $('#structure').attr('src',firstImageSource)
+        $('#structure').attr('src', firstImageSource)
     }
 }
 
 function round(value, decimals) {
     return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }
+
+function otherModality(val) {
+    if (val == 'other') {
+        $('#otherModality').css("display", "inline-block")
+    } else {
+        $('#otherModality').css("display", "none")
+    }
+}
+
+$(document)
+    .ready(function () {
+        flipSchablone();
+    })

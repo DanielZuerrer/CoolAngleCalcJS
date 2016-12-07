@@ -41,8 +41,6 @@
 					</svg>
 				</div>
 			</div>
-			<img id="secondStructure" class="hidden" src="" />
-
 		</div>
 		<div class="hidden">
 			<div id="angleOutput">
@@ -58,12 +56,26 @@
 			<div id="controls">
 				<div>
 					<button type="button" onclick="flipSchablone()">Flip</button>
+					<button onclick="$('#replaceImage').trigger('click');">Replace Image</button>
 					<button class="hidden-switch" type="button" onclick="switchImages()">Switch Images</button>
+
+					<input type="file" id="replaceImage" style="display: none"/>
+
+				</div><br>
+				<input id="bigInfo" type="text" name="bigInfo" placeholder="#"><br><br>
+				<select id="modality" name="modality" onchange="otherModality(this.value);">
+						<option value="ct">CT</option>
+						<option value="mri_3dir">MRI_3Dir</option>
+						<option value="mri_t2spc">MRI_T2spc</option>
+						<option value="other">other</option>
+					</select>
+				<input id="otherModality" name="otherModality" type="text" placeholder="other">
+				<br><br>
+				<div>
+					<span class="sideLetter activeSide">L</span><span class="sideLetter">R</span>
 				</div>
-				<form>
-					<input id="bigInfo" type="text" name="bigInfo"><br>
-					<textarea name="Text1" cols="39" rows="5"></textarea>
-				</form>
+				<br>
+				<textarea name="Text1" cols="39" rows="5" placeholder="comment"></textarea>
 				<div id="secondImageContainer" class="hidden">
 					<div id="secondUploader" onclick="$('#secondPhoto').click()">
 						<p>
@@ -77,10 +89,12 @@
 	</div>
 
 
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/propeller.js"></script>
+	<script src="js/libs/jquery.js"></script>
+	<script src="js/libs/jquery-ui.js"></script>
+	<script src="js/libs/propeller.js"></script>
+	<script src="js/libs/html2canvas.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/save.js"></script>
 </body>
 
 </html>
