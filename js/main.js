@@ -241,7 +241,30 @@ function otherModality() {
     }
 }
 
+function flipShortcut(event) {
+    if (event.altKey && event.keyCode == 65) {
+        flipSchablone();
+    }
+
+}
+function replaceShortcut(event) {
+    if (event.altKey && event.keyCode == 82) {
+        $('#replaceImage').click();
+    }
+
+}
+function switchShortcut(event) {
+    if (event.altKey && event.keyCode == 87) {
+        switchImages();
+    }
+
+}
+
 $(document)
     .ready(function () {
         flipSchablone();
+        document.addEventListener('keyup', flipShortcut, true);
+        document.addEventListener('keyup', replaceShortcut, true);
+        document.addEventListener('keyup', switchShortcut, true);
+
     })

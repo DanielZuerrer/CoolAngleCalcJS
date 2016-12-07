@@ -42,10 +42,13 @@ function saveMode(event) {
 var structure1 = null;
 var structure2 = null;
 function getImages() {
+    vh = window.innerHeight;
+
+
     structure1 = $('<div id="structure1"></div>')
     structure1.append($('.structureContainer').html());
     structure1.height($('.structureContainer').height());
-    structure1.attr('style', 'transform: matrix(0.5,0,0,0.5,0,' + -(structure1.height() / 8) + ')');
+    structure1.attr('style', 'transform: matrix(0.5,0,0,0.5,0,'+-vh/15+')');
     switchImages();
     structure2 = $('<div id="structure2"></div>')
     structure2.append($('.structureContainer').html());

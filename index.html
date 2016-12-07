@@ -65,9 +65,9 @@
 				</div><br>
 				<input id="bigInfo" type="text" name="bigInfo" placeholder="#"><br><br>
 				<form id="modalityForm">
-					<input id="ctRadio" type="radio" name="modality" value="CT" checked><label for="ctRadio">CT</label>
 					<input id="mri_3dirRadio" type="radio" name="modality" value="MRI_3Dir"><label for="mri_3dirRadio">MRI_3Dir</label>
-					<input id="mri_t2spcRadio" type="radio" name="modality" value="MRI_T2spc"><label for="mri_t2spcRadio">MRI_T2spc</label> <br>
+					<input id="mri_t2spcRadio" type="radio" name="modality" value="MRI_T2spc"><label for="mri_t2spcRadio">MRI_T2spc</label>
+					<input id="ctRadio" type="radio" name="modality" value="CT"><label for="ctRadio">CT</label> <br>
 					<input id="otherRadio" type="radio" name="modality" value="Other"><label for="otherRadio">Other</label>
 					<input id="otherModality" name="otherModality" type="text" placeholder="other">
 				</form>
@@ -86,9 +86,14 @@
 					</div>
 					<input type="file" name="secondPhoto" id="secondPhoto" />
 				</div>
+				<button id="saveModeButton" type="button" onclick="saveMode({altKey: true, keyCode: 83})">Save Mode</button>
 			</div>
 		</div>
 	</div>
+
+	<footer>
+		 © Daniel Zuerrer. Shortcuts: FLIP (Alt + A) • REPLACE (Alt + R) • SWITCH (Alt + W) • SAVE MODE (Alt + S). Click Title to Copy.
+	</footer>
 
 
 	<script src="js/libs/jquery.js"></script>

@@ -22,7 +22,7 @@
 
 #structure {
     position: absolute;
-    width: 66vw;
+    height: 65vh;
     border: none;
     z-index: -1;
 }
@@ -107,4 +107,15 @@ textarea {
 
 .activeSide {
     background-color: #90EE90;
+}
+
+/*---------------------------------------- FOOTER ---------------------------------------------------*/
+
+footer {
+    bottom: 0;
+    position: absolute;
+    color: #888;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
 }
