@@ -14,14 +14,6 @@ function flipSchablone() {
     updateCanvas();
 }
 
-function switchImages() {
-    if ($('#structure').attr('src') == firstImageSource) {
-        $('#structure').attr('src', secondImageSource)
-    } else {
-        $('#structure').attr('src', firstImageSource)
-    }
-}
-
 var modalityForm = document.getElementById('modalityForm');
 modalityForm.addEventListener('change', otherModality, false);
 function otherModality() {

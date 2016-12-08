@@ -49,7 +49,14 @@ function handleSecondImage(e) {
         $('.hidden-switch').toggleClass('hidden-switch')
     };
     reader.readAsDataURL(e.target.files[0]);
+}
 
+function switchImages() {
+    if ($('#structure').attr('src') == firstImageSource) {
+        $('#structure').attr('src', secondImageSource)
+    } else {
+        $('#structure').attr('src', firstImageSource)
+    }
 }
 
 var dropbox = document.getElementById("uploader");
