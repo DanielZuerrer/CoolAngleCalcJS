@@ -2,7 +2,7 @@
 
 ## Technology
 
-The project is written in HTML, CSS and JavaScript. Is is available for use at http://cool-angle-calc.herokuapp.com/. To deploy the static project a simple PHP file is used which acts as the entry point of the program.
+The project is written in HTML, CSS and JavaScript. It is available for use at https://danielzuerrer.github.io/CoolAngleCalcJS/
 
 ### Used Libraries
 
