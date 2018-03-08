@@ -4,6 +4,8 @@
 
 The project is written in HTML, CSS and JavaScript. It is available for use at https://danielzuerrer.github.io/CoolAngleCalcJS/
 
+To use the application locally download the source code and open the [index.html](index.html) file.
+
 ### Used Libraries
 
 The project uses the following libraries which are all available under the MIT licence.
