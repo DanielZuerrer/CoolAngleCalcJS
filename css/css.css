@@ -36,7 +36,7 @@ p {
 }
 
 .border {
-    border: 2px solid red;
+    border: 1.5px dashed black;
 }
 
 .flipped {
