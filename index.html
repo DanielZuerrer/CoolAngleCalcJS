@@ -20,90 +20,99 @@
 
 <body>
 	<div id="uploader" onclick="$('#filePhoto').click()">
-<p>
-	click here or drag here to display image
-</p>
-</div>
+		<p>
+			click here or drag here to display image
+		</p>
+	</div>
 
-<div id="mainContainer">
-	<input type="file" name="userprofile_picture" id="filePhoto" />
-	<div class="structureContainer">
-		<img id="structure" class="hidden" src="" />
-		<div class="schabloneContainer hidden">
-			<div class="rotateContainer hidden">
-				<img src="img/schabloneL.png" class="schablone hidden border" />
+	<div id="mainContainer">
+		<input type="file" name="userprofile_picture" id="filePhoto" />
+		<div class="structureContainer">
+			<img id="structure" class="hidden" src="" />
+			<div class="schabloneContainer hidden">
+				<div class="rotateContainer hidden">
+					<img src="img/schabloneL.png" class="schablone hidden border" />
+				</div>
+			</div>
+			<div class="lineContainer hidden">
+				<div class="lineRotateContainer hidden">
+					<svg height="500" width="30" class="hidden line">
+						<line x1="15" y1="0" x2="15" y2="500" style="stroke:rgb(0,255,0);stroke-width:2" />
+						<circle cx="15" cy="252" r="2" fill="rgb(0,255,0)" stroke="rgb(0,255,0)" stroke-width="2" />
+					</svg>
+				</div>
 			</div>
 		</div>
-		<div class="lineContainer hidden">
-			<div class="lineRotateContainer hidden">
-				<svg height="500" width="30" class="hidden line">
-					<line x1="15" y1="0" x2="15" y2="500" style="stroke:rgb(0,255,0);stroke-width:2" />
-<circle cx="15" cy="252" r="2" fill="rgb(0,255,0)" stroke="rgb(0,255,0)" stroke-width="2" />
-</svg>
-</div>
-</div>
-</div>
-<div class="hidden">
-	<div id="angleOutput">
-		<svg height="250" width="250" class="hidden" id="redLine">
-			<line x1="125" y1="0" x2="125" y2="250" style="stroke:rgb(255,0,0);stroke-width:2" />
-</svg>
-<svg height="250" width="250" class="hidden" id="greenLine">
-	<line x1="125" y1="0" x2="125" y2="250" style="stroke:rgb(0,255,0);stroke-width:2" />
-</svg>
-<canvas id="degrees" width="250" height="250"></canvas>
-</div>
-<p id="degreeOutput">151.10°</p>
-<div id="controls">
-	<div>
-		<button id="flipButton" type="button" onclick="flipSchablone()">Flip</button>
-<button id="replaceImageButton" onclick="$('#replaceImage').trigger('click');">Replace Image</button>
-<button id="switchImagesButton" class="hidden-switch" type="button" onclick="switchImages()">Switch Images</button>
+		<div class="hidden">
+			<div id="angleOutput">
+				<svg height="250" width="250" class="hidden" id="redLine">
+					<line x1="125" y1="0" x2="125" y2="250" style="stroke:rgb(255,0,0);stroke-width:2" />
+				</svg>
+				<svg height="250" width="250" class="hidden" id="greenLine">
+					<line x1="125" y1="0" x2="125" y2="250" style="stroke:rgb(0,255,0);stroke-width:2" />
+				</svg>
+				<canvas id="degrees" width="250" height="250"></canvas>
+			</div>
+			<p id="degreeOutput">151.10°</p>
+			<div id="controls">
+				<div>
+					<button id="flipButton" type="button" onclick="flipSchablone()">Flip</button>
+					<button id="replaceImageButton" onclick="$('#replaceImage').trigger('click');">Replace Image</button>
+					<button id="switchImagesButton" class="hidden-switch" type="button" onclick="switchImages()">Switch Images</button>
 
-<input type="file" id="replaceImage" style="display: none" />
+					<input type="file" id="replaceImage" style="display: none" />
 
-</div><br>
-<input id="bigInfo" type="text" name="bigInfo" placeholder="#"><br><br>
-<form id="modalityForm">
-	<input id="mri_3dirRadio" type="radio" name="modality" value="MRI_3Dir"><label for="mri_3dirRadio">MRI_3Dir</label>
-	<input id="mri_t2spcRadio" type="radio" name="modality" value="MRI_T2spc"><label for="mri_t2spcRadio">MRI_T2spc</label>
-	<input id="ctRadio" type="radio" name="modality" value="CT"><label for="ctRadio">CT</label> <br>
-	<input id="otherRadio" type="radio" name="modality" value="Other"><label for="otherRadio">Other</label>
-	<input id="otherModality" name="otherModality" type="text" placeholder="other">
-</form>
+				</div>
+				<br>
+				<input id="bigInfo" type="text" name="bigInfo" placeholder="#">
+				<br>
+				<br>
+				<form id="modalityForm">
+					<input id="mri_3dirRadio" type="radio" name="modality" value="MRI_3Dir">
+					<label for="mri_3dirRadio">MRI_3Dir</label>
+					<input id="mri_t2spcRadio" type="radio" name="modality" value="MRI_T2spc">
+					<label for="mri_t2spcRadio">MRI_T2spc</label>
+					<input id="ctRadio" type="radio" name="modality" value="CT">
+					<label for="ctRadio">CT</label>
+					<br>
+					<input id="otherRadio" type="radio" name="modality" value="Other">
+					<label for="otherRadio">Other</label>
+					<input id="otherModality" name="otherModality" type="text" placeholder="other">
+				</form>
 
-<br>
-<div>
-	<span class="sideLetter">R</span><span class="sideLetter activeSide">L</span>
-</div>
-<br>
-<textarea name="Text1" cols="39" rows="5" placeholder="comment"></textarea>
-<div id="secondImageContainer" class="hidden">
-	<div id="secondUploader" onclick="$('#secondPhoto').click()">
-<p>
-	add second image
-</p>
-</div>
-<input type="file" name="secondPhoto" id="secondPhoto" />
-</div>
-<button id="saveModeButton" type="button" onclick="saveMode({altKey: true, keyCode: 83})">Save Mode</button>
-</div>
-</div>
-</div>
+				<br>
+				<div>
+					<span class="sideLetter">R</span>
+					<span class="sideLetter activeSide">L</span>
+				</div>
+				<br>
+				<textarea name="Text1" cols="39" rows="5" placeholder="comment"></textarea>
+				<div id="secondImageContainer" class="hidden">
+					<div id="secondUploader" onclick="$('#secondPhoto').click()">
+						<p>
+							add second image
+						</p>
+					</div>
+					<input type="file" name="secondPhoto" id="secondPhoto" />
+				</div>
+				<button id="saveModeButton" type="button" onclick="saveMode({altKey: true, keyCode: 83})">Save Mode</button>
+			</div>
+		</div>
+	</div>
 
-<footer>
-	© Daniel Zuerrer. Shortcuts: ROTATE (Alt + Drag) • KEEP ASPECT RATIO (Shift + Resize) • FLIP (Alt + A) • SWITCH (Alt + W)
-	• REPLACE (Alt + R) • SAVE MODE (Alt + S). Click Title to Copy.
-</footer>
+	<footer>
+		© Daniel Zuerrer. Shortcuts: ROTATE (Alt + Drag) • KEEP ASPECT RATIO (Shift + Resize) • FLIP (Alt + A) • SWITCH (Alt + W)
+		• REPLACE (Alt + R) • SAVE MODE (Alt + S). Click Title to Copy.
+	</footer>
 
 
-<script src="js/libs/jquery.js"></script>
-<script src="js/libs/jquery-ui.js"></script>
-<script src="js/libs/propeller.js"></script>
-<script src="js/imageHandling.js"></script>
-<script src="js/angle.js"></script>
-<script src="js/controls.js"></script>
-<script src="js/save.js"></script>
+	<script src="js/libs/jquery.js"></script>
+	<script src="js/libs/jquery-ui.js"></script>
+	<script src="js/libs/propeller.js"></script>
+	<script src="js/imageHandling.js"></script>
+	<script src="js/angle.js"></script>
+	<script src="js/controls.js"></script>
+	<script src="js/save.js"></script>
 </body>
 
 </html>
