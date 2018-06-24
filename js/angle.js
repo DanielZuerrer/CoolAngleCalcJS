@@ -72,7 +72,11 @@ function updateCanvas() {
         var start = (greenLine.angle + 90) * (Math.PI / 180);
 
         redAngle = 360 - redLine.angle;
-        greenAngle = Math.abs(greenLine.angle - 180);
+        if (greenLine.angle <= 180) {
+            greenAngle = Math.abs(greenLine.angle - 180);
+        } else {
+            greenAngle = Math.abs(360 - greenLine.angle + 180)
+        }
 
     } else {
         var start = (redLine.angle - 90) * (Math.PI / 180)
